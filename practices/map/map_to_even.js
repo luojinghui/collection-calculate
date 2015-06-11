@@ -1,9 +1,9 @@
 'use strict';
-function map_to_even(collection){
-    var _ = require('../lodash/mylodash.js');
+var _ = require('../chain/prolodash.js');
 
-    return _.map(collection,function(n) {
+function map_to_even(collection){
+    return _(collection).map(function (n) {
         return n * 2;
-});
+    }).value();
 }
 module.exports = map_to_even;
