@@ -1,16 +1,14 @@
 'use strict';
+var _ = require('../chain/prolodash.js');
 
 function grouping_count(collection) {
+    var temp = {};
 
-    var _ = require('../lodash/mylodash.js');
-    var result = {};
-
-    _.foreach(collection,function(n,i) {
-        result[n] = result[n] || 0;
-        result[n] ++;
+    _(collection).each(function(n,i) {
+        temp[n + ''] = temp[n + ''] || 0;
+        temp[n + '']++;
     });
-    console.log(result)
-    return result;
+    return temp;
 }
 
 module.exports = grouping_count;
