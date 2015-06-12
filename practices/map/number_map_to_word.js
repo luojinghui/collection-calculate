@@ -1,12 +1,9 @@
 'use strict';
-
+var _ = require('../chain/prolodash.js');
 var number_map_to_word = function(collection){
-    var _ = require('../lodash/mylodash.js');
-    var result = [];
-
-    return _.map(collection,function(n) {
-        return String.fromCharCode(n+96);
-    });
-};
+    return _(collection).map(function(n) {
+        return _().num_change_letter(n);
+    }).value();
+}
 
 module.exports = number_map_to_word;
