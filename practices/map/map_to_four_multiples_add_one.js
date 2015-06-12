@@ -1,9 +1,9 @@
 'use strict';
-var map_to_four_multiples_add_one = function(collection){
-    var _ = require('../lodash/mylodash.js');
+var _ = require('../chain/prolodash.js');
 
-    return _.map(collection,function(n) {
+var map_to_four_multiples_add_one = function(collection){
+    return _(collection).map(function(n) {
         return n * 4 + 1;
-    });
+    }).value();
 }
 module.exports = map_to_four_multiples_add_one;
