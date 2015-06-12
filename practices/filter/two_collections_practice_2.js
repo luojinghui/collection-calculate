@@ -1,22 +1,20 @@
 'use strict';
-var _ = require('../lodash/mylodash.js');
+var _ = require('../chain/prolodash.js');
 
 function choose_no_common_elements(collection_a, collection_b) {
 
     var result = [];
 
-    _.foreach(collection_a,function(n) {
-        if(! _.is_exist(collection_b,n)) {
+    _(collection_a).each(function(n) {
+        if(! _(collection_b).is_exist(n)) {
             result.push(n);
         }
     });
-    
-    _.foreach(collection_b,function(n) {
-        if(! _.is_exist(collection_a,n)) {
+    _(collection_b).each(function(n) {
+        if(! _(collection_a).is_exist(n)) {
             result.push(n);
         }
-    })
-
+    });
     return result;
 }
 
