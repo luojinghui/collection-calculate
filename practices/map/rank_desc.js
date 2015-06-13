@@ -1,10 +1,10 @@
 'use strict';
-var _ = require('../lodash/mylodash.js');
+var _ = require('../chain/prolodash.js');
 
 var rank_desc = function(collection){
-    return _.sort_array(collection,function(a,b) {
-        return a < b;
-    })
-};
+    return _(collection).sort(function(a,b) {
+        return a > b;
+    }).value();
+}
 
 module.exports = rank_desc;
