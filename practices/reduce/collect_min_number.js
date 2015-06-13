@@ -1,10 +1,11 @@
 'use strict';
-var _ = require('../lodash/mylodash.js');
+var _ = require('../chain/prolodash.js');
 
 function collect_min_number(collection) {
-    return _.reduce(collection,function(a,b) {
-        return Math.min(a,b);
-    })
+    var a = _(collection).reduce(function(m,n) {
+        return Math.min(m,n);
+    }).value();
+    return a;
 }
 
 module.exports = collect_min_number;
