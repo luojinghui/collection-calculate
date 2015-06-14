@@ -1,17 +1,18 @@
 'use strict';
-var _ = require('../lodash/mylodash.js');
+var _ = require('../chain/prolodash.js');
 
 function compare_collections(collection_a, collection_b) {
-    //在这里写入代码
-    var result;
+    if(collection_a.length != collection_b.length) {
+        return false;
+    }
 
-    _.foreach(collection_a,function (n) {
-        for(var j = 0; j < collection_b.length; j++) {
-            if(n === collection_b[j]) {
-                return true;
-            }
+    var index = true;
+    _(collection_a).each(function(n,i) {
+            if(collection_b[i] != n) {
+                index = false;
         }
-    });
+    })
+    return index;
 }
 
 module.exports = compare_collections;
