@@ -1,21 +1,12 @@
 'use strict';
+var _ = require('../chain/prolodash.js');
 
 function find_first_even(collection) {
-    //在这里写入代码
-    // for (var i = 0; i < collection.length; i++) {
-    //     if (collection[i] % 2 === 0) {
-    //         return collection[i];
-    //     }
-    // }
-
-    var _ = require('../lodash/mylodash.js');
-    var array = _.filter(collection,function(n) {
+    return _(collection).filter(function(n) {
         return n % 2 === 0;
-    })
-
-    return _.reduce(array,function(a,b) {
+    }).reduce(function(a,b) {
         return a;
-    });
+    }).value();
 }
 
 module.exports = find_first_even;
