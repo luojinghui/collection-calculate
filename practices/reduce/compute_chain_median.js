@@ -1,14 +1,20 @@
 'use strict';
-var _ = require('../lodash/mylodash.js');
+var _ = require('../chain/prolodash.js');
 function compute_chain_median(collection) {
     var array = [];
-    var array_2 = [];
 
-    array = collection.split('->');
-    _.foreach(array,function(n) {
-        array_2.push(Number(n));
+    _(collection.split('->')).each(function(n) {
+        array.push(Number(n));
     });
-    return _.median(array_2);
+    return _median(array);
+    // var array = [];
+    // var array_2 = [];
+    //
+    // array = collection.split('->');
+    // _.foreach(array,function(n) {
+    //     array_2.push(Number(n));
+    // });
+    // return _.median(array_2);
 }
 module.exports = compute_chain_median;
 
