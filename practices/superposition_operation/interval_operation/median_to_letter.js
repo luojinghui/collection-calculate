@@ -1,9 +1,8 @@
 'use strict';
-var _ = require('../../lodash/mylodash.js');
+var _ = require('../../chain/prolodash.js');
 
 function median_to_letter(collection) {
-    var result = Math.ceil(_.median(collection));
-    return _.num_change_letter(result);
+    return _().num_change_letter(Math.ceil(_(collection).median()));
 }
 
 module.exports = median_to_letter;
