@@ -1,4 +1,5 @@
 'use strict';
+var _ = require('../chain/prolodash.js');
 
 function spilt_to_zero(number, interval) {
     var array = [number];
