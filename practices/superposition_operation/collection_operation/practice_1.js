@@ -1,21 +1,12 @@
 'use strict';
+var _ = require('../../chain/prolodash.js');
 
 function hybrid_operation(collection) {
-    var _ = require('../../lodash/mylodash.js');
-    var array = [];
-
-    array = _.map(collection,function(n) {
+    return _(collection).map(function(n) {
         return n * 3 + 2;
-    });
-
-    return _.reduce(array,function(a,b) {
+    }).reduce(function(a,b) {
         return a + b;
-    });
-
-    // for (var i = 0; i < collection.length; i++) {
-    //     sum += (collection[i] * 3 + 2);
-    // }
-    //return sum;
+    }).value();
 }
 
 module.exports = hybrid_operation;
