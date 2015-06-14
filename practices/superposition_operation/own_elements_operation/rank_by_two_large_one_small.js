@@ -1,14 +1,15 @@
 'use strict';
-var _ = require('../../lodash/mylodash.js');
+var _ = require('../../chain/prolodash.js');
 
 function rank_by_two_large_one_small(collection){
-    var array = _.sort_array(collection,function(a,b) {
-        return a < b;
-    });
+    var array = _(collection).sort(function(a,b) {
+        return a > b;
+    }).value();
+    var a = 0;
 
-    for (var a = 0; a < array.length; a + = 3) {
+    for (var a = 0; a < array.length; a += 3) {
         var temp_letter = 0;
-        
+
         if(a < array.length - 2) {
             temp_letter = array[a];
             array[a] = array[a + 1];
