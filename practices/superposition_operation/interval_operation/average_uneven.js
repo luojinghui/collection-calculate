@@ -1,28 +1,15 @@
 'use strict';
-var _ = require('../../lodash/mylodash.js');
+var _ = require('../../chain/prolodash.js');
 
 function average_uneven(collection) {
-    // var ave = 0;
-    // var sum = 0;
-    // var count = 0
-    //
-    // for (var i = 0; i < collection.length; i++) {
-    //     if (collection[i] % 2 != 0) {
-    //         sum += collection[i];
-    //         count ++;
-    //     }
-    // }
-    // ave = sum / count;
-    // return ave;
+    var count = 1;
 
-    var even_array = _.filter(collection,function(n) {
-        return n % 2 != 0;
-    });
-    var sum = 0;
-    sum = _.reduce(even_array,function(a,b) {
+    return _(collection).filter(function(n) {
+        return n % 2 != 0 ;
+    }).reduce(function(a,b) {
+        count += 1;
         return a + b;
-    });
-    return sum / even_array.length;
+    }).value()/count;
 }
 
 module.exports = average_uneven;
