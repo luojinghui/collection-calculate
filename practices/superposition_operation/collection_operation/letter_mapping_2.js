@@ -1,16 +1,10 @@
 'use strict';
+var _ = require('../../chain/prolodash.js');
 
 function average_to_letter(collection) {
-    var sum = 0 ;
-    var _ = require('../../lodash/mylodash.js');
-
-    _.foreach(collection,function(n) {
-        sum += n;
-    });
-
-    var ave = Math.ceil( sum / (collection.length ) );
-
-    return String.fromCharCode(ave + 96);
+    return _().num_change_letter(Math.ceil(_(collection).reduce(function(a,b) {
+        return a + b;
+    }).value()/collection.length));
 }
 
 module.exports = average_to_letter;
