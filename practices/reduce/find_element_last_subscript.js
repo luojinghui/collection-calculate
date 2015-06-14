@@ -1,11 +1,10 @@
 'use strict';
+var _ = require('../chain/prolodash.js');
 
 function calculate_elements_sum(collection, element) {
-    //在这里写入代码
     var index = 0;
-    var _ = require('../lodash/mylodash.js');
 
-    _.foreach(collection,function(n,i) {
+    _(collection).each(function(n,i) {
         if(n === element) {
             index = i;
         }
