@@ -3,9 +3,9 @@ var _ = require('../chain/prolodash.js');
 function compute_chain_median(collection) {
     var array = [];
 
-    _(collection.split('->')).each(function(n) {
-        array.push(Number(n));
-    });
-    return _median(array);
+    return _(collection.split('->')).map(function(n) {
+        return Number(n);
+    }).median();
+
 }
 module.exports = compute_chain_median;
