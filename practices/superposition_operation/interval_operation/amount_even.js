@@ -1,23 +1,12 @@
 'use strict';
-var _ = require('../../lodash/mylodash.js');
+var _ = require('../../chain/prolodash.js');
 
 function amount_even(collection) {
-    // var sum = 0;
-    //
-    // for (var i = 0; i < collection.length; i++) {
-    //     if(collection[i] % 2 === 0) {
-    //         sum += collection[i];
-    //     }
-    // }
-    // return sum;
-
-    var array = _.filter(collection,function(n) {
-        return n % 2 === 0;
-    });
-
-    return _.reduce(array,function(a,b) {
-            return a + b ;
-    });
+    return _(collection).filter(function(n) {
+        return n % 2 === 0 ;
+    }).reduce(function(a,b) {
+        return a + b;
+    }).value();
 }
 
 module.exports = amount_even;
